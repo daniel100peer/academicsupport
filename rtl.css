@@ -1,0 +1,256 @@
+/* ============================================================
+   ACADEVA — RTL Overrides
+   All rules scoped under html[dir="rtl"]
+   ============================================================ */
+
+/* ── Base ───────────────────────────────────────────────── */
+html[dir="rtl"] body {
+  font-family: 'Heebo', 'Inter', system-ui, -apple-system, sans-serif;
+}
+
+/* ── Navigation ─────────────────────────────────────────── $/
+html[dir="rtl"] .nav__link::after {
+  left: auto;
+  right: 0;
+}
+
+/* Mobile nav: slide from left instead of right */
+@media (max-width: 768px) {
+  html[dir="rtl"] .nav__links {
+    right: auto;
+    left: -100%;
+  }
+
+  html[dir="rtl"] .nav__links.open {
+    left: 0;
+  }
+}
+
+/* ── Buttons — flip arrow SVGs ──────────────────────────── */
+html[dir="rtl"] .btn svg,
+html[dir="rtl"] .blog-card__link svg,
+html[dir="rtl"] .nav__cta svg {
+  transform: scaleX(-1);
+}
+
+html[dir="rtl"] .btn:hover svg {
+  transform: scaleX(-1) translateX(4px);
+}
+
+html[dir="rtl"] .blog-card:hover .blog-card__link svg {
+  transform: scaleX(-1) translateX(3px);
+}
+
+/* ── Blog Card Category Badge ───────────────────────────── $/
+html[dir="rtl"] .blog-card__category {
+  left: auto;
+  right: var(--space-sm);
+}
+
+/* ── Footer ─────────────────────────────────────────────── */
+html[dir="rtl"] .footer__link:hover {
+  padding-left: 0;
+  padding-right: 0.5rem;
+}
+
+/* ── Timeline (About page) ──────────────────────────────── */
+html[dir="rtl"] .timeline-vertical {
+  padding-left: 0;
+  padding-right: 3rem;
+}
+
+html[dir="rtl"] .timeline-vertical::before {
+  left: auto;
+  right: 0;
+}
+
+html[dir="rtl"] .timeline-item::before {
+  left: auto;
+  right: calc(-3rem + -5px);
+}
+
+/* ── Testimonial Quote Border ───────────────────────────── */
+html[dir="rtl"] .testimonial-card__quote {
+  padding-left: 0;
+  padding-right: var(--space-md);
+  border-left: none;
+  border-right: 3px solid var(--clr-primary);
+}
+
+/* ── Post Content ───────────────────────────────────────── $/
+html[dir="rtl"] .post-content blockquote {
+  padding-left: 0;
+  padding-right: var(--space-md);
+  border-left: none;
+  border-right: 3px solid var(--clr-primary);
+}
+
+html[dir="rtl"] .post-content ul,
+html[dir="rtl"] .post-content ol {
+  padding-left: 0;
+  padding-right: 1.5rem;
+}
+
+/* ── Scroll Indicators (right → left) ───────────────────── */
+html[dir="rtl"] .scroll-indicators {
+  right: auto;
+  left: var(--space-md);
+}
+
+/* ── Section Label Icon ─────────────────────────────────── $/
+html[dir="rtl"] .section__label {
+  flex-direction: row-reverse;
+}
+
+/* ── Breadcrumb Arrow ───────────────────────────────────── $/
+html[dir="rtl"] nav[aria-label="Breadcrumb"] svg {
+  transform: scaleX(-1);
+}
+
+/* ── Reveal Animations — mirror horizontal direction ───── */
+html[dir="rtl"] .reveal-left {
+  transform: translateX(60px);
+}
+
+html[dir="rtl"] .reveal-right {
+  transform: translateX(-60px);
+}
+
+/* ── Image Reveal — flip transform-origin ───────────────── */
+html[dir="rtl"] .img-reveal::after {
+  transform-origin: right;
+}
+
+/* ── Draw Line — flip transform-origin ──────────────────── */
+html[dir="rtl"] .draw-line::after {
+  transform-origin: left;
+}
+
+html[dir="rtl"] .draw-line:hover::after {
+  transform-origin: right;
+}
+
+/* ── Hero Shape Positions (mirror) ──────────────────────── */
+html[dir="rtl"] .hero__shape--ring {
+  right: auto;
+  left: 10%;
+}
+
+html[dir="rtl"] .hero__shape--dots {
+  left: auto;
+  right: 8%;
+}
+
+html[dir="rtl"] .hero__shape--triangle {
+  right: auto;
+  left: 15%;
+}
+
+html[dir="rtl"] .hero__shape--cross {
+  left: auto;
+  right: 15%;
+}
+
+/* ── Connector Line on "How It Works" ───────────────────── */
+html[dir="rtl"] .section .grid .hidden.md\\:block[style*="left"] {
+  direction: rtl;
+}
+
+/* ── Contact Form Text Alignment ────────────────────────── */
+html[dir="rtl"] .form-input,
+html[dir="rtl"] .form-textarea,
+html[dir="rtl"] select.form-input {
+  text-align: right;
+}
+
+/* ── Contact Info Cards ─────────────────────────────────── $/
+html[dir="rtl"] .glass-card ul li {
+  text-align: right;
+}
+
+/* ── Mission Section — text align ───────────────────────── $/
+html[dir="rtl"] .section__title[style*="text-align:left"] {
+  text-align: right !important;
+}
+
+/* ── Feature Row Reverse ────────────────────────────────── $/
+html[dir="rtl"] .feature-row--reverse {
+  flex-direction: row;
+}
+
+html[dir="rtl"] .feature-row {
+  flex-direction: row-reverse;
+}
+
+@media (max-width: 768px) {
+  html[dir="rtl"] .feature-row,
+  html[dir="rtl"] .feature-row--reverse {
+    flex-direction: column;
+  }
+}
+
+/* ── Footer Grid — RTL order ────────────────────────────── */
+html[dir="rtl"] .footer__inner {
+  direction: rtl;
+}
+
+html[dir="rtl"] .footer__bottom {
+  direction: rtl;
+}
+
+/* ── Language Toggle Button ─────────────────────────────── */
+.lang-toggle {
+  display: inline-flex;
+  align-items: center;
+  justify-content: center;
+  padding: 0.4rem 1rem;
+  border-radius: var(--radius-full);
+  background: rgba(255, 255, 255, 0.05);
+  border: 1px solid rgba(255, 255, 255, 0.12);
+  backdrop-filter: blur(12px);
+  -webkit-backdrop-filter: blur(12px);
+  font-size: var(--fs-xs);
+  font-weight: 600;
+  color: var(--clr-text);
+  cursor: pointer;
+  transition: background var(--duration-fast) var(--ease-smooth),
+              border-color var(--duration-fast) var(--ease-smooth),
+              transform var(--duration-fast) var(--ease-bounce);
+  white-space: nowrap;
+  letter-spacing: 0.02em;
+}
+
+.lang-toggle:hover {
+  background: rgba(255, 255, 255, 0.1);
+  border-color: var(--clr-primary-light);
+  transform: translateY(-1px);
+}
+
+.lang-toggle:active {
+  transform: translateY(0) scale(0.97);
+}
+
+/* Mobile: keep toggle visible in open menu */
+@media (max-width: 768px) {
+  .lang-toggle {
+    order: -1;
+    margin-bottom: var(--space-sm);
+  }
+}
+
+/* ── Flash Prevention ───────────────────────────────────── $/
+[data-i18n],
+[data-i18n-html] {
+  visibility: hidden;
+}
+
+html.i18n-ready [data-i18n],
+html.i18n-ready [data-i18n-html] {
+  visibility: visible;
+}
+
+/* Elements that should always be visible (non-text decorative) */
+html [data-i18n].always-visible,
+html [data-i18n-html].always-visible {
+  visibility: visible;
+}
