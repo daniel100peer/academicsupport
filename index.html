@@ -1,1 +1,579 @@
 <!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Acadeva — Academic Excellence, Elevated</title>
+  <meta name="description" content="Premium academic support for students, researchers, and professionals. Writing guidance, research help, and study strategies that transform your academic journey.">
+  <meta name="i18n-title-key" content="index.title">
+  <meta name="i18n-desc-key" content="index.meta.desc">
+
+  <!-- Flash prevention: set lang/dir before first paint -->
+  <script>
+  (function(){var l=localStorage.getItem('acadeva-lang')||'he';
+  document.documentElement.lang=l;document.documentElement.dir=l==='he'?'rtl':'ltr';})();
+  </script>
+
+  <!-- Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <!-- Tailwind CDN -->
+  <script src="https://cdn.tailwindcss.com"></script>
+
+  <!-- Custom Styles -->
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="rtl.css">
+
+  <!-- Favicon (inline SVG data URI) -->
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 2L4 8v8c0 7.2 5.1 13.3 12 14.8C22.9 29.3 28 23.2 28 16V8L16 2z' fill='url(%23g)'/%3E%3Cpath d='M12 16l3 3 5-6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <!-- Scroll Progress -->
+  <div class="scroll-progress" aria-hidden="true">
+    <div class="scroll-progress__bar"></div>
+  </div>
+
+  <!-- Cursor Follower -->
+  <div class="cursor-follower" aria-hidden="true"></div>
+
+  <!-- Background Mesh -->
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--4"></div>
+  </div>
+
+  <!-- Grain Overlay -->
+  <div class="grain-overlay" aria-hidden="true"></div>
+
+  <!-- Floating Particles -->
+  <div class="particles-container" aria-hidden="true"></div>
+
+  <!-- Scroll Section Indicators -->
+  <div class="scroll-indicators" aria-hidden="true">
+    <div class="scroll-indicator-dot active" title="Hero"></div>
+    <div class="scroll-indicator-dot" title="Services"></div>
+    <div class="scroll-indicator-dot" title="How It Works"></div>
+    <div class="scroll-indicator-dot" title="Stats"></div>
+    <div class="scroll-indicator-dot" title="Testimonials"></div>
+    <div class="scroll-indicator-dot" title="Blog"></div>
+    <div class="scroll-indicator-dot" title="CTA"></div>
+  </div>
+
+  <!-- ====== NAVIGATION ====== -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Acadeva Home">
+        <!-- Logo SVG — Shield + Check -->
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs>
+            <linearGradient id="logo-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse">
+              <stop stop-color="#818cf8"/>
+              <stop offset="1" stop-color="#22d3ee"/>
+            </linearGradient>
+          </defs>
+          <path d="M18 3L5 9.5v9c0 8.4 5.5 15.5 13 17.2 7.5-1.7 13-8.8 13-17.2v-9L18 3z" stroke="url(#logo-grad)" stroke-width="2" fill="none"/>
+          <path d="M13 18.5l3.5 3.5 6-7" stroke="url(#logo-grad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="nav__logo-text"><span>Acad</span>eva</span>
+      </a>
+
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link active" data-i18n="nav.home">Home</a>
+        <a href="about.html" class="nav__link" data-i18n="nav.about">About</a>
+        <a href="blog.html" class="nav__link" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" class="nav__link" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" class="nav__cta magnetic-wrap"><span data-i18n="nav.cta">Get Started</span></a>
+      </div>
+
+      <button id="langToggle" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">
+        <span>English</span>
+      </button>
+
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span>
+        <span></span>
+        <span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- ====== HERO SECTION (PINNED) ====== -->
+  <section class="hero pinned-section" id="hero" data-section-id="hero" aria-labelledby="hero-title">
+
+    <!-- Parallax Background Layers -->
+    <div class="hero__parallax-layer" data-parallax-speed="0.3" aria-hidden="true">
+      <!-- Ring shape -->
+      <div class="hero__shape hero__shape--ring"></div>
+
+      <!-- Dot grid SVG -->
+      <svg class="hero__shape hero__shape--dots" width="120" height="120" viewBox="0 0 120 120" fill="none">
+        <g opacity="0.5">
+          <circle cx="10" cy="10" r="2" fill="#818cf8"/><circle cx="30" cy="10" r="2" fill="#818cf8"/>
+          <circle cx="50" cy="10" r="2" fill="#818cf8"/><circle cx="70" cy="10" r="2" fill="#818cf8"/>
+          <circle cx="90" cy="10" r="2" fill="#818cf8"/><circle cx="110" cy="10" r="2" fill="#818cf8"/>
+          <circle cx="10" cy="30" r="2" fill="#818cf8"/><circle cx="30" cy="30" r="2" fill="#818cf8"/>
+          <circle cx="50" cy="30" r="2" fill="#818cf8"/><circle cx="70" cy="30" r="2" fill="#818cf8"/>
+          <circle cx="90" cy="30" r="2" fill="#818cf8"/><circle cx="110" cy="30" r="2" fill="#818cf8"/>
+          <circle cx="10" cy="50" r="2" fill="#818cf8"/><circle cx="30" cy="50" r="2" fill="#818cf8"/>
+          <circle cx="50" cy="50" r="2" fill="#818cf8"/><circle cx="70" cy="50" r="2" fill="#818cf8"/>
+          <circle cx="90" cy="50" r="2" fill="#818cf8"/><circle cx="110" cy="50" r="2" fill="#818cf8"/>
+          <circle cx="10" cy="70" r="2" fill="#818cf8"/><circle cx="30" cy="70" r="2" fill="#818cf8"/>
+          <circle cx="50" cy="70" r="2" fill="#818cf8"/><circle cx="70" cy="70" r="2" fill="#818cf8"/>
+          <circle cx="90" cy="70" r="2" fill="#818cf8"/><circle cx="110" cy="70" r="2" fill="#818cf8"/>
+        </g>
+      </svg>
+
+      <!-- Triangle SVG -->
+      <svg class="hero__shape hero__shape--triangle" width="80" height="70" viewBox="0 0 80 70" fill="none">
+        <path d="M40 5L75 65H5L40 5z" stroke="#22d3ee" stroke-width="1.5" fill="none"/>
+      </svg>
+
+      <!-- Cross SVG -->
+      <svg class="hero__shape hero__shape--cross" width="40" height="40" viewBox="0 0 40 40" fill="none">
+        <path d="M20 5v30M5 20h30" stroke="#f59e0b" stroke-width="1.5" stroke-linecap="round"/>
+      </svg>
+    </div>
+
+    <!-- Hero Content -->
+    <div class="hero__content">
+      <div class="hero__badge reveal-scale">
+        <span class="hero__badge-dot"></span>
+        <span data-i18n="index.hero.badge">Trusted by 10,000+ Students</span>
+      </div>
+
+      <h1 class="hero__title" id="hero-title">
+        <span class="hero__title-line">
+          <span class="hero__title-word" data-i18n="index.hero.title.w1">Your </span>
+          <span class="hero__title-word gradient-text" data-i18n="index.hero.title.w2">Academic</span>
+        </span>
+        <span class="hero__title-line">
+          <span class="hero__title-word" data-i18n="index.hero.title.w3">Success, </span>
+          <span class="hero__title-word gradient-text" data-i18n="index.hero.title.w4">Elevated</span>
+        </span>
+      </h1>
+
+      <p class="hero__subtitle reveal-up" data-i18n="index.hero.subtitle">
+        Expert guidance for research papers, thesis writing, study strategies,
+        and academic growth. We turn ambition into achievement.
+      </p>
+
+      <div class="hero__actions reveal-up">
+        <a href="contact.html" class="btn btn--primary magnetic-wrap">
+          <span data-i18n="index.hero.cta1">Start Your Journey</span>
+          <!-- Arrow SVG -->
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 9h10M10 5l4 4-4 4"/>
+          </svg>
+        </a>
+        <a href="about.html" class="btn btn--outline magnetic-wrap">
+          <span data-i18n="index.hero.cta2">Learn More</span>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== SERVICES / FEATURES (Pinned Scroll-Through) ====== -->
+  <section class="section" id="services" data-section-id="services" aria-labelledby="services-title">
+    <div class="section__container">
+      <div class="section__header">
+        <div class="section__label reveal-up">
+          <!-- Star SVG -->
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1l2.2 4.5L15 6.3l-3.5 3.4.8 4.8L8 12.2 3.7 14.5l.8-4.8L1 6.3l4.8-.8L8 1z"/>
+          </svg>
+          <span data-i18n="index.services.label">Our Services</span>
+        </div>
+        <h2 class="section__title reveal-up" id="services-title" data-i18n-html="index.services.title">
+          Everything You Need to <span class="text-gradient">Excel</span>
+        </h2>
+        <p class="section__description reveal-up" data-i18n="index.services.desc">
+          From first draft to final defense, our comprehensive services cover every step of your academic journey.
+        </p>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <!-- Card 1 -->
+        <div class="glass-card reveal-up" data-magnetic>
+          <div class="glass-card__icon glass-card__icon--indigo">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M17 3l8 8-14 14H3v-8L17 3z"/>
+              <path d="M14 6l8 8"/>
+            </svg>
+          </div>
+          <h3 class="glass-card__title" data-i18n="index.services.card1.title">Essay & Paper Writing</h3>
+          <p class="glass-card__text" data-i18n="index.services.card1.text">Professional guidance on structure, argumentation, and academic writing conventions. From outline to polished draft.</p>
+        </div>
+
+        <!-- Card 2 -->
+        <div class="glass-card reveal-up" data-magnetic>
+          <div class="glass-card__icon glass-card__icon--cyan">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <circle cx="12" cy="12" r="9"/>
+              <path d="M19 19l6 6"/>
+              <path d="M9 12h6M12 9v6"/>
+            </svg>
+          </div>
+          <h3 class="glass-card__title" data-i18n="index.services.card2.title">Research Assistance</h3>
+          <p class="glass-card__text" data-i18n="index.services.card2.text">Literature reviews, methodology design, data analysis support, and source evaluation to strengthen your research.</p>
+        </div>
+
+        <!-- Card 3 -->
+        <div class="glass-card reveal-up" data-magnetic>
+          <div class="glass-card__icon glass-card__icon--amber">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 4h8c1.1 0 2 .9 2 2v16l-2-1.5L10 22H4a1 1 0 01-1-1V5a1 1 0 011-1z"/>
+              <path d="M24 4h-8c-1.1 0-2 .9-2 2v16l2-1.5L18 22h6a1 1 0 001-1V5a1 1 0 00-1-1z"/>
+            </svg>
+          </div>
+          <h3 class="glass-card__title" data-i18n="index.services.card3.title">Study Strategies</h3>
+          <p class="glass-card__text" data-i18n="index.services.card3.text">Personalized study plans, exam preparation techniques, time management tools, and productivity frameworks.</p>
+        </div>
+
+        <!-- Card 4 -->
+        <div class="glass-card reveal-up" data-magnetic>
+          <div class="glass-card__icon glass-card__icon--rose">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3L4 7.5v7c0 6.6 4.3 12.2 10 13.5 5.7-1.3 10-6.9 10-13.5v-7L14 3z"/>
+              <path d="M10 14.5l3 3 5-6"/>
+            </svg>
+          </div>
+          <h3 class="glass-card__title" data-i18n="index.services.card4.title">Quality Assurance</h3>
+          <p class="glass-card__text" data-i18n="index.services.card4.text">Thorough proofreading, plagiarism checks, citation formatting (APA, MLA, Chicago), and academic integrity review.</p>
+        </div>
+
+        <!-- Card 5 -->
+        <div class="glass-card reveal-up" data-magnetic>
+          <div class="glass-card__icon glass-card__icon--emerald">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M14 3L2 9l12 6 12-6-12-6z"/>
+              <path d="M6 12v7c0 2 3.6 4 8 4s8-2 8-4v-7"/>
+              <path d="M24 9v9"/>
+            </svg>
+          </div>
+          <h3 class="glass-card__title" data-i18n="index.services.card5.title">Thesis & Dissertation</h3>
+          <p class="glass-card__text" data-i18n="index.services.card5.text">Comprehensive support from proposal to defense. Chapter reviews, committee preparation, and methodology guidance.</p>
+        </div>
+
+        <!-- Card 6 -->
+        <div class="glass-card reveal-up" data-magnetic>
+          <div class="glass-card__icon glass-card__icon--indigo">
+            <svg viewBox="0 0 28 28" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <rect x="3" y="14" width="5" height="10" rx="1"/>
+              <rect x="11.5" y="8" width="5" height="16" rx="1"/>
+              <rect x="20" y="4" width="5" height="20" rx="1"/>
+            </svg>
+          </div>
+          <h3 class="glass-card__title" data-i18n="index.services.card6.title">Data & Statistics</h3>
+          <p class="glass-card__text" data-i18n="index.services.card6.text">Statistical analysis, data visualization, SPSS/R guidance, and results interpretation for quantitative research.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neon-divider" aria-hidden="true"></div>
+
+  <!-- ====== HOW IT WORKS (Scroll-Scrubbed Timeline) ====== -->
+  <section class="section" id="how-it-works" data-section-id="hiw" aria-labelledby="hiw-title">
+    <div class="section__container">
+      <div class="section__header">
+        <div class="section__label reveal-up">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M8 1a7 7 0 100 14A7 7 0 008 1zm0 2.5a1.25 1.25 0 110 2.5 1.25 1.25 0 010-2.5zM9.5 11.5h-3v-1h1v-2h-1v-1h2v3h1v1z"/>
+          </svg>
+          <span data-i18n="index.hiw.label">How It Works</span>
+        </div>
+        <h2 class="section__title reveal-up" id="hiw-title" data-i18n-html="index.hiw.title">
+          Three Steps to <span class="text-gradient">Brilliance</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8 relative">
+        <!-- Connector Line (desktop) -->
+        <div class="hidden md:block absolute top-[56px] left-[16.67%] right-[16.67%] h-[2px]"
+             style="background: linear-gradient(90deg, var(--clr-primary), var(--clr-accent), var(--clr-warm));"
+             aria-hidden="true"></div>
+
+        <!-- Step 1 -->
+        <div class="text-center reveal-up">
+          <div class="w-[72px] h-[72px] mx-auto mb-6 rounded-2xl flex items-center justify-center relative"
+               style="background: linear-gradient(135deg, rgba(99,102,241,0.15), rgba(99,102,241,0.05)); border: 1px solid rgba(99,102,241,0.2);">
+            <span class="text-2xl font-800" style="color: var(--clr-primary-light); font-weight:800;" data-i18n="index.hiw.step1.num">01</span>
+            <div class="absolute -inset-1 rounded-2xl opacity-40" style="box-shadow: 0 0 30px var(--clr-primary-glow);"></div>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="index.hiw.step1.title">Share Your Challenge</h3>
+          <p style="color: var(--clr-text-muted);" class="text-sm leading-relaxed" data-i18n="index.hiw.step1.text">Tell us about your assignment, deadline, and academic level. We match you with the perfect specialist.</p>
+        </div>
+
+        <!-- Step 2 -->
+        <div class="text-center reveal-up">
+          <div class="w-[72px] h-[72px] mx-auto mb-6 rounded-2xl flex items-center justify-center relative"
+               style="background: linear-gradient(135deg, rgba(6,182,212,0.15), rgba(6,182,212,0.05)); border: 1px solid rgba(6,182,212,0.2);">
+            <span class="text-2xl" style="color: var(--clr-accent-light); font-weight:800;" data-i18n="index.hiw.step2.num">02</span>
+            <div class="absolute -inset-1 rounded-2xl opacity-40" style="box-shadow: 0 0 30px var(--clr-accent-glow);"></div>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="index.hiw.step2.title">Collaborate & Refine</h3>
+          <p style="color: var(--clr-text-muted);" class="text-sm leading-relaxed" data-i18n="index.hiw.step2.text">Work directly with your academic guide. Review drafts, ask questions, and iterate until the work exceeds expectations.</p>
+        </div>
+
+        <!-- Step 3 -->
+        <div class="text-center reveal-up">
+          <div class="w-[72px] h-[72px] mx-auto mb-6 rounded-2xl flex items-center justify-center relative"
+               style="background: linear-gradient(135deg, rgba(245,158,11,0.15), rgba(245,158,11,0.05)); border: 1px solid rgba(245,158,11,0.2);">
+            <span class="text-2xl" style="color: var(--clr-warm); font-weight:800;" data-i18n="index.hiw.step3.num">03</span>
+            <div class="absolute -inset-1 rounded-2xl opacity-40" style="box-shadow: 0 0 30px var(--clr-warm-glow);"></div>
+          </div>
+          <h3 class="text-xl font-bold mb-2" data-i18n="index.hiw.step3.title">Succeed & Grow</h3>
+          <p style="color: var(--clr-text-muted);" class="text-sm leading-relaxed" data-i18n="index.hiw.step3.text">Submit with confidence. Gain insights and skills that elevate your future academic performance.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neon-divider" aria-hidden="true"></div>
+
+  <!-- ====== STATS ====== -->
+  <section class="section" id="stats" data-section-id="stats">
+    <div class="section__container">
+      <div class="stats-grid">
+        <div class="stat-card glass-card reveal-scale">
+          <div class="stat-card__number" data-counter="10000">0</div>
+          <div class="stat-card__label" data-i18n="index.stats.students">Students Helped</div>
+        </div>
+        <div class="stat-card glass-card reveal-scale">
+          <div class="stat-card__number" data-counter="98">0</div>
+          <div class="stat-card__label" data-i18n="index.stats.satisfaction">Satisfaction Rate %</div>
+        </div>
+        <div class="stat-card glass-card reveal-scale">
+          <div class="stat-card__number" data-counter="250">0</div>
+          <div class="stat-card__label" data-i18n="index.stats.experts">Expert Academics</div>
+        </div>
+        <div class="stat-card glass-card reveal-scale">
+          <div class="stat-card__number" data-counter="50">0</div>
+          <div class="stat-card__label" data-i18n="index.stats.subjects">Subject Areas</div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neon-divider" aria-hidden="true"></div>
+
+  <!-- ====== TESTIMONIALS ====== -->
+  <section class="section" id="testimonials" data-section-id="testimonials" aria-labelledby="testimonials-title">
+    <div class="section__container">
+      <div class="section__header">
+        <div class="section__label reveal-up">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M3 3h4v4.5L5 11H3.5l1.5-3.5H3V3zm6 0h4v4.5L11 11H9.5l1.5-3.5H9V3z"/>
+          </svg>
+          <span data-i18n="index.testimonials.label">Testimonials</span>
+        </div>
+        <h2 class="section__title reveal-up" id="testimonials-title" data-i18n-html="index.testimonials.title">
+          Voices of <span class="text-gradient">Success</span>
+        </h2>
+      </div>
+
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
+        <div class="glass-card testimonial-card reveal-up">
+          <p class="testimonial-card__quote" data-i18n="index.testimonials.q1">
+            "Acadeva transformed my approach to academic writing. My thesis went from a rough draft to a publication-worthy manuscript in weeks."
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">SK</div>
+            <div>
+              <div class="testimonial-card__name" data-i18n="index.testimonials.n1">Sarah K.</div>
+              <div class="testimonial-card__role" data-i18n="index.testimonials.r1">PhD Candidate, Sociology</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card reveal-up">
+          <p class="testimonial-card__quote" data-i18n="index.testimonials.q2">
+            "The research assistance was phenomenal. They helped me find sources I never would have discovered on my own and shaped a rigorous methodology."
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">MR</div>
+            <div>
+              <div class="testimonial-card__name" data-i18n="index.testimonials.n2">Michael R.</div>
+              <div class="testimonial-card__role" data-i18n="index.testimonials.r2">Master's Student, Data Science</div>
+            </div>
+          </div>
+        </div>
+
+        <div class="glass-card testimonial-card reveal-up">
+          <p class="testimonial-card__quote" data-i18n="index.testimonials.q3">
+            "I went from struggling with time management to finishing my semester with a 3.9 GPA. Their study strategies genuinely changed my life."
+          </p>
+          <div class="testimonial-card__author">
+            <div class="testimonial-card__avatar">AL</div>
+            <div>
+              <div class="testimonial-card__name" data-i18n="index.testimonials.n3">Aisha L.</div>
+              <div class="testimonial-card__role" data-i18n="index.testimonials.r3">Undergraduate, Biology</div>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <div class="neon-divider" aria-hidden="true"></div>
+
+  <!-- ====== FEATURED BLOG PREVIEW ====== -->
+  <section class="section" id="blog-preview" data-section-id="blog-preview" aria-labelledby="blog-preview-title">
+    <div class="section__container">
+      <div class="section__header">
+        <div class="section__label reveal-up">
+          <svg viewBox="0 0 16 16" fill="currentColor">
+            <path d="M2 2h12a1 1 0 011 1v10a1 1 0 01-1 1H2a1 1 0 01-1-1V3a1 1 0 011-1zm1 3v2h4V5H3zm0 4v2h4V9H3zm6-4v6h4V5H9z"/>
+          </svg>
+          <span data-i18n="index.blog.label">From the Blog</span>
+        </div>
+        <h2 class="section__title reveal-up" id="blog-preview-title" data-i18n-html="index.blog.title">
+          Insights & <span class="text-gradient">Resources</span>
+        </h2>
+      </div>
+
+      <div class="bento-grid">
+        <!-- Featured Post (wide) -->
+        <a href="post-template.html" class="bento-item bento-item--wide glass-card blog-card reveal-up" style="padding: 0; overflow: hidden;">
+          <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 21/10;">
+            <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=900&q=80" alt="Student researching at a library desk with books and laptop" loading="lazy">
+            <span class="blog-card__category blog-card__category--research" data-i18n="index.blog.cat.research">Research</span>
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta">
+              <span data-i18n="index.blog.post1.date">Jan 15, 2026</span>
+              <span data-i18n="index.blog.post1.read">8 min read</span>
+            </div>
+            <h3 class="blog-card__title" data-i18n="index.blog.post1.title">The Complete Guide to Crafting a Research Proposal That Gets Approved</h3>
+            <p class="blog-card__excerpt" data-i18n="index.blog.post1.excerpt">Step-by-step strategies for writing research proposals that impress committees and secure funding.</p>
+            <span class="blog-card__link">
+              <span data-i18n="index.blog.post1.link">Read Article</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 8h8M9 5l3 3-3 3"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+
+        <!-- Side Post (narrow) -->
+        <a href="post-template.html" class="bento-item bento-item--narrow glass-card blog-card reveal-up" style="padding: 0; overflow: hidden;">
+          <div class="blog-card__image parallax-img-wrap">
+            <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80" alt="Student studying with colorful notes and highlighters" loading="lazy">
+            <span class="blog-card__category blog-card__category--study" data-i18n="index.blog.cat.study">Study Tips</span>
+          </div>
+          <div class="blog-card__body">
+            <div class="blog-card__meta"><span data-i18n="index.blog.post2.date">Feb 3, 2026</span></div>
+            <h3 class="blog-card__title" data-i18n="index.blog.post2.title">5 Evidence-Based Study Techniques for Exam Season</h3>
+            <span class="blog-card__link">
+              <span data-i18n="index.blog.post2.link">Read</span>
+              <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+                <path d="M4 8h8M9 5l3 3-3 3"/>
+              </svg>
+            </span>
+          </div>
+        </a>
+      </div>
+
+      <div class="text-center mt-12 reveal-up">
+        <a href="blog.html" class="btn btn--outline magnetic-wrap">
+          <span data-i18n="index.blog.viewall">View All Articles</span>
+          <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+            <path d="M4 9h10M10 5l4 4-4 4"/>
+          </svg>
+        </a>
+      </div>
+    </div>
+  </section>
+
+  <div class="neon-divider" aria-hidden="true"></div>
+
+  <!-- ====== CTA BANNER ====== -->
+  <section class="section" id="cta" data-section-id="cta">
+    <div class="section__container">
+      <div class="cta-banner reveal-scale">
+        <h2 class="cta-banner__title" data-i18n-html="index.cta.title">
+          Ready to Transform Your <span class="text-gradient">Academic Future</span>?
+        </h2>
+        <p class="cta-banner__text" data-i18n="index.cta.text">
+          Join thousands of students who have elevated their academic performance with Acadeva.
+        </p>
+        <div class="flex justify-center gap-4 flex-wrap relative z-10">
+          <a href="contact.html" class="btn btn--primary magnetic-wrap">
+            <span data-i18n="index.cta.btn1">Get Started Today</span>
+            <svg viewBox="0 0 18 18" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round">
+              <path d="M4 9h10M10 5l4 4-4 4"/>
+            </svg>
+          </a>
+          <a href="about.html" class="btn btn--glass magnetic-wrap">
+            <span data-i18n="index.cta.btn2">Meet Our Team</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ====== FOOTER ====== -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">
+          <svg viewBox="0 0 32 32" width="32" fill="none" xmlns="http://www.w3.org/2000/svg">
+            <defs>
+              <linearGradient id="footer-grad" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse">
+                <stop stop-color="#818cf8"/>
+                <stop offset="1" stop-color="#22d3ee"/>
+              </linearGradient>
+            </defs>
+            <path d="M16 3L5 8v7c0 7 4.6 13 11 14.5C22.4 28 27 22 27 15V8L16 3z" stroke="url(#footer-grad)" stroke-width="1.5" fill="none"/>
+            <path d="M11 16l3.5 3.5 6-7" stroke="url(#footer-grad)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+          </svg>
+          <span>Acadeva</span>
+        </div>
+        <p class="footer__brand-text" data-i18n="footer.brand.text">
+          Premium academic support for students, researchers, and professionals worldwide. Excellence is not a destination; it is a continuous journey.
+        </p>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer.services">Services</h4>
+        <a href="contact.html" class="footer__link" data-i18n="footer.essay">Essay Writing</a>
+        <a href="contact.html" class="footer__link" data-i18n="footer.research">Research Help</a>
+        <a href="contact.html" class="footer__link" data-i18n="footer.thesis">Thesis Support</a>
+        <a href="contact.html" class="footer__link" data-i18n="footer.study">Study Coaching</a>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer.company">Company</h4>
+        <a href="about.html" class="footer__link" data-i18n="footer.aboutus">About Us</a>
+        <a href="blog.html" class="footer__link" data-i18n="footer.blog">Blog</a>
+        <a href="contact.html" class="footer__link" data-i18n="footer.contact">Contact</a>
+        <a href="#" class="footer__link" data-i18n="footer.careers">Careers</a>
+      </div>
+
+      <div>
+        <h4 class="footer__heading" data-i18n="footer.legal">Legal</h4>
+        <a href="#" class="footer__link" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="#" class="footer__link" data-i18n="footer.terms">Terms of Service</a>
+        <a href="#" class="footer__link" data-i18n="footer.integrity">Academic Integrity</a>
+      </div>
+    </div>
+
+    <div class="footer__bottom">
+      <span data-i18n="footer.copyright">2026 Acadeva. All rights reserved.</span>
+      <span data-i18n="footer.crafted">Crafted for academic excellence.</span>
+    </div>
+  </footer>
+
+  <!-- ====== SCRIPTS ====== -->
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>

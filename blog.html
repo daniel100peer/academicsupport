@@ -3,103 +3,239 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-  
-                                                
+  <title>Blog — Acadeva</title>
+  <meta name="description" content="Expert insights on academic writing, research methodology, study strategies, and career development from the Acadeva team.">
+  <meta name="i18n-title-key" content="blog.title">
+  <meta name="i18n-desc-key" content="blog.meta.desc">
+  <script>
+  (function(){var l=localStorage.getItem('acadeva-lang')||'he';
+  document.documentElement.lang=l;document.documentElement.dir=l==='he'?'rtl':'ltr';})();
+  </script>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Heebo:wght@400;500;600;700;800&family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+  <script src="https://cdn.tailwindcss.com"></script>
+  <link rel="stylesheet" href="styles.css">
+  <link rel="stylesheet" href="rtl.css">
+  <link rel="icon" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 32 32'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0' y1='0' x2='1' y2='1'%3E%3Cstop offset='0%25' stop-color='%236366f1'/%3E%3Cstop offset='100%25' stop-color='%2306b6d4'/%3E%3C/linearGradient%3E%3C/defs%3E%3Cpath d='M16 2L4 8v8c0 7.2 5.1 13.3 12 14.8C22.9 29.3 28 23.2 28 16V8L16 2z' fill='url(%23g)'/%3E%3Cpath d='M12 16l3 3 5-6' stroke='white' stroke-width='2.5' fill='none' stroke-linecap='round' stroke-linejoin='round'/%3E%3C/svg%3E">
+</head>
+<body>
+
+  <div class="scroll-progress" aria-hidden="true"><div class="scroll-progress__bar"></div></div>
+  <div class="cursor-follower" aria-hidden="true"></div>
+  <div class="bg-mesh" aria-hidden="true">
+    <div class="bg-mesh__orb bg-mesh__orb--1"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--2"></div>
+    <div class="bg-mesh__orb bg-mesh__orb--3"></div>
+  </div>
+  <div class="grain-overlay" aria-hidden="true"></div>
+  <div class="particles-container" aria-hidden="true"></div>
+
+  <!-- Navigation -->
+  <nav class="nav" role="navigation" aria-label="Main navigation">
+    <div class="nav__inner">
+      <a href="index.html" class="nav__logo" aria-label="Acadeva Home">
+        <svg viewBox="0 0 36 36" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+          <defs><linearGradient id="logo-grad" x1="0" y1="0" x2="36" y2="36" gradientUnits="userSpaceOnUse"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs>
+          <path d="M18 3L5 9.5v9c0 8.4 5.5 15.5 13 17.2 7.5-1.7 13-8.8 13-17.2v-9L18 3z" stroke="url(#logo-grad)" stroke-width="2" fill="none"/>
+          <path d="M13 18.5l3.5 3.5 6-7" stroke="url(#logo-grad)" stroke-width="2.5" fill="none" stroke-linecap="round" stroke-linejoin="round"/>
+        </svg>
+        <span class="nav__logo-text"><span>Acad</span>eva</span>
+      </a>
+      <div class="nav__links" id="navLinks">
+        <a href="index.html" class="nav__link" data-i18n="nav.home">Home</a>
+        <a href="about.html" class="nav__link" data-i18n="nav.about">About</a>
+        <a href="blog.html" class="nav__link active" data-i18n="nav.blog">Blog</a>
+        <a href="contact.html" class="nav__link" data-i18n="nav.contact">Contact</a>
+        <a href="contact.html" class="nav__cta magnetic-wrap"><span data-i18n="nav.cta">Get Started</span></a>
+      </div>
+      <button id="langToggle" class="lang-toggle" onclick="toggleLang()" aria-label="Switch language">
+        <span>English</span>
+      </button>
+      <button class="nav__toggle" id="navToggle" aria-label="Toggle menu" aria-expanded="false">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </nav>
+
+  <!-- Blog Hero -->
+  <section class="hero" style="min-height: 50vh;" aria-labelledby="blog-hero-title">
+    <div class="hero__content">
+      <h1 class="hero__title" id="blog-hero-title" style="font-size: var(--fs-4xl);">
+        <span class="hero__title-line" data-i18n-html="blog.hero.title">
+          <span class="hero__title-word gradient-text">Insights</span>
+          <span class="hero__title-word"> & </span>
+          <span class="hero__title-word gradient-text">Resources</span>
+        </span>
+      </h1>
+      <p class="hero__subtitle reveal-up" data-i18n="blog.hero.subtitle">
+        Expert articles on academic writing, research methods, and study strategies to help you excel.
+      </p>
+    </div>
+  </section>
+
+  <!-- Blog Grid (Asymmetric Bento) -->
+  <section class="section" style="padding-top: 0;">
+    <div class="bento-grid" style="padding: 0 var(--space-lg);">
+
+      <!-- ROW 1: Featured (wide) + Side (narrow) -->
+      <a href="post-template.html" class="bento-item bento-item--wide glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 21/10;">
+          <img src="https://images.unsplash.com/photo-1456513080510-7bf3a84b82f8?w=900&q=80" alt="Research workspace with books and laptop" loading="lazy">
+          <span class="blog-card__category blog-card__category--research" data-i18n="blog.cat.research">Research</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post1.date">Jan 15, 2026</span><span data-i18n="blog.post1.read">8 min read</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post1.title">The Complete Guide to Crafting a Research Proposal That Gets Approved</h2>
+          <p class="blog-card__excerpt" data-i18n="blog.post1.excerpt">Step-by-step strategies for writing research proposals that impress committees, secure funding, and set the stage for impactful academic work.</p>
+          <span class="blog-card__link"><span data-i18n="blog.readarticle">Read Article</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <a href="post-template.html" class="bento-item bento-item--narrow glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap">
+          <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?w=600&q=80" alt="Student studying with colorful notes and textbooks" loading="lazy">
+          <span class="blog-card__category blog-card__category--study" data-i18n="blog.cat.study">Study Tips</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post2.date">Feb 3, 2026</span><span data-i18n="blog.post2.read">5 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post2.title">5 Evidence-Based Study Techniques for Exam Season</h2>
+          <p class="blog-card__excerpt" data-i18n="blog.post2.excerpt">Backed by cognitive science: spaced repetition, active recall, and more.</p>
+          <span class="blog-card__link"><span data-i18n="blog.read">Read</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <!-- ROW 2: Three equal columns -->
+      <a href="post-template.html" class="bento-item bento-item--third glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 16/10;">
+          <img src="https://images.unsplash.com/photo-1455390582262-044cdead277a?w=600&q=80" alt="Person writing in a journal with pen and coffee" loading="lazy">
+          <span class="blog-card__category blog-card__category--writing" data-i18n="blog.cat.writing">Writing</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post3.date">Feb 10, 2026</span><span data-i18n="blog.post3.read">6 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post3.title">APA 7th Edition: The Definitive Citation Guide</h2>
+          <span class="blog-card__link"><span data-i18n="blog.read">Read</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <a href="post-template.html" class="bento-item bento-item--third glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 16/10;">
+          <img src="https://images.unsplash.com/photo-1521737711867-e3b97375f902?w=600&q=80" alt="Professional team collaborating in modern office" loading="lazy">
+          <span class="blog-card__category blog-card__category--career" data-i18n="blog.cat.career">Career</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post4.date">Feb 17, 2026</span><span data-i18n="blog.post4.read">7 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post4.title">From Academia to Industry: Translating Your Research Skills</h2>
+          <span class="blog-card__link"><span data-i18n="blog.read">Read</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <a href="post-template.html" class="bento-item bento-item--third glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 16/10;">
+          <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?w=600&q=80" alt="Data visualization charts and analytics dashboard" loading="lazy">
+          <span class="blog-card__category blog-card__category--research" data-i18n="blog.cat.research">Research</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post5.date">Feb 22, 2026</span><span data-i18n="blog.post5.read">9 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post5.title">Data Visualization Best Practices for Academic Papers</h2>
+          <span class="blog-card__link"><span data-i18n="blog.read">Read</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <!-- ROW 3: Narrow + Wide (reversed asymmetry) -->
+      <a href="post-template.html" class="bento-item bento-item--narrow glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap">
+          <img src="https://images.unsplash.com/photo-1486312338219-ce68d2c6f44d?w=600&q=80" alt="Person typing on laptop overcoming writer's block" loading="lazy">
+          <span class="blog-card__category blog-card__category--writing" data-i18n="blog.cat.writing">Writing</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post6.date">Mar 1, 2026</span><span data-i18n="blog.post6.read">4 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post6.title">Overcoming Writer's Block: A Scientific Approach</h2>
+          <span class="blog-card__link"><span data-i18n="blog.read">Read</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <a href="post-template.html" class="bento-item bento-item--wide glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 21/10;">
+          <img src="https://images.unsplash.com/photo-1484480974693-6ca0a78fb36b?w=900&q=80" alt="Organized productivity workspace with timer and task lists" loading="lazy">
+          <span class="blog-card__category blog-card__category--study" data-i18n="blog.cat.study">Study Tips</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post7.date">Mar 5, 2026</span><span data-i18n="blog.post7.read">10 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post7.title">The Pomodoro Technique Evolved: Building a Productivity System That Actually Works for Graduate Students</h2>
+          <p class="blog-card__excerpt" data-i18n="blog.post7.excerpt">Move beyond the basic timer. Learn how to adapt the Pomodoro method for the unique demands of thesis writing, lab work, and deep research sessions.</p>
+          <span class="blog-card__link"><span data-i18n="blog.readarticle">Read Article</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <!-- ROW 4: Two halves -->
+      <a href="post-template.html" class="bento-item bento-item--half glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 16/9;">
+          <img src="https://images.unsplash.com/photo-1532619675605-1ede6c2ed2b0?w=600&q=80" alt="Research methodology books and academic papers on desk" loading="lazy">
+          <span class="blog-card__category blog-card__category--research" data-i18n="blog.cat.research">Research</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post8.date">Mar 12, 2026</span><span data-i18n="blog.post8.read">6 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post8.title">Qualitative vs Quantitative: Choosing the Right Research Methodology</h2>
+          <p class="blog-card__excerpt" data-i18n="blog.post8.excerpt">A clear framework for selecting the methodology that best serves your research question.</p>
+          <span class="blog-card__link"><span data-i18n="blog.read">Read</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+      <a href="post-template.html" class="bento-item bento-item--half glass-card blog-card reveal-up" style="padding:0;overflow:hidden;">
+        <div class="blog-card__image parallax-img-wrap" style="aspect-ratio: 16/9;">
+          <img src="https://images.unsplash.com/photo-1507679799987-c73779587ccf?w=600&q=80" alt="Professional in business attire reviewing academic CV" loading="lazy">
+          <span class="blog-card__category blog-card__category--career" data-i18n="blog.cat.career">Career</span>
+        </div>
+        <div class="blog-card__body">
+          <div class="blog-card__meta"><span data-i18n="blog.post9.date">Mar 18, 2026</span><span data-i18n="blog.post9.read">5 min</span></div>
+          <h2 class="blog-card__title" data-i18n="blog.post9.title">Building Your Academic CV: What Hiring Committees Actually Look For</h2>
+          <p class="blog-card__excerpt" data-i18n="blog.post9.excerpt">Insider tips from former committee members on structuring a CV that stands out.</p>
+          <span class="blog-card__link"><span data-i18n="blog.read">Read</span> <svg viewBox="0 0 16 16" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 8h8M9 5l3 3-3 3"/></svg></span>
+        </div>
+      </a>
+
+    </div>
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer" role="contentinfo">
+    <div class="footer__inner">
+      <div class="footer__brand">
+        <div class="footer__brand-logo">
+          <svg viewBox="0 0 32 32" width="32" fill="none"><defs><linearGradient id="fg" x1="0" y1="0" x2="32" y2="32" gradientUnits="userSpaceOnUse"><stop stop-color="#818cf8"/><stop offset="1" stop-color="#22d3ee"/></linearGradient></defs><path d="M16 3L5 8v7c0 7 4.6 13 11 14.5C22.4 28 27 22 27 15V8L16 3z" stroke="url(#fg)" stroke-width="1.5" fill="none"/><path d="M11 16l3.5 3.5 6-7" stroke="url(#fg)" stroke-width="2" fill="none" stroke-linecap="round" stroke-linejoin="round"/></svg>
+          <span>Acadeva</span>
+        </div>
+        <p class="footer__brand-text" data-i18n="footer.brand.text.short">Premium academic support for students, researchers, and professionals worldwide.</p>
+      </div>
+      <div>
+        <h4 class="footer__heading" data-i18n="footer.services">Services</h4>
+        <a href="contact.html" class="footer__link" data-i18n="footer.essay">Essay Writing</a>
+        <a href="contact.html" class="footer__link" data-i18n="footer.research">Research Help</a>
+        <a href="contact.html" class="footer__link" data-i18n="footer.thesis">Thesis Support</a>
+      </div>
+      <div>
+        <h4 class="footer__heading" data-i18n="footer.company">Company</h4>
+        <a href="about.html" class="footer__link" data-i18n="footer.aboutus">About Us</a>
+        <a href="blog.html" class="footer__link" data-i18n="footer.blog">Blog</a>
+        <a href="contact.html" class="footer__link" data-i18n="footer.contact">Contact</a>
+      </div>
+      <div>
+        <h4 class="footer__heading" data-i18n="footer.legal">Legal</h4>
+        <a href="#" class="footer__link" data-i18n="footer.privacy">Privacy Policy</a>
+        <a href="#" class="footer__link" data-i18n="footer.terms">Terms of Service</a>
+      </div>
+    </div>
+    <div class="footer__bottom">
+      <span data-i18n="footer.copyright">2026 Acadeva. All rights reserved.</span>
+      <span data-i18n="footer.crafted">Crafted for academic excellence.</span>
+    </div>
+  </footer>
+
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/gsap.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/gsap@3.12.7/dist/ScrollTrigger.min.js"></script>
+  <script src="translations.js"></script>
+  <script src="i18n.js"></script>
+  <script src="script.js"></script>
+</body>
+</html>
