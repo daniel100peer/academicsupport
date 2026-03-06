@@ -248,6 +248,24 @@ var TRANSLATIONS = {
   'blog.post9.title':           { en: 'Building Your Academic CV: What Hiring Committees Actually Look For', he: 'בניית קורות החיים האקדמיים שלך: מה ועדות גיוס באמת מחפשות' },
   'blog.post9.excerpt':         { en: 'Insider tips from former committee members on structuring a CV that stands out.', he: 'טיפים מבפנים מחברי ועדות לשעבר על בניית קורות חיים בולטים.' },
 
+  /* ──────────────── BLOG: Posts 10–21 (additional articles) ──────────────── */
+  'blog.post10.title':          { en: 'Essay Writing Guide', he: 'מדריך לכתיבת חיבורים' },
+  'blog.post11.title':          { en: 'Exam Preparation Strategies', he: 'אסטרטגיות הכנה למבחנים' },
+  'blog.post12.title':          { en: 'Quizlet vs Anki vs Brainscape: Best Flashcard App', he: 'Quizlet מול Anki מול Brainscape: אפליקציית הכרטיסיות הטובה ביותר' },
+  'blog.post13.title':          { en: 'How to Study Math: A Complete Guide for Students Who Struggle', he: 'איך ללמוד מתמטיקה: מדריך מלא לסטודנטים שמתקשים' },
+  'blog.post13.excerpt':        { en: 'Practical strategies to overcome math anxiety and build confidence in problem-solving.', he: 'אסטרטגיות מעשיות להתגבר על חרדת מתמטיקה ולבנות ביטחון בפתרון בעיות.' },
+  'blog.post14.title':          { en: 'Effective Note-Taking Methods', he: 'שיטות יעילות לרישום הערות' },
+  'blog.post15.title':          { en: 'How to Study Effectively: 10 Most Common Questions Answered', he: 'איך ללמוד ביעילות: תשובות ל-10 השאלות הנפוצות ביותר' },
+  'blog.post16.title':          { en: "Why You're Studying Hard But Still Failing (And How to Fix It)", he: 'למה אתם לומדים קשה אבל עדיין נכשלים (ואיך לתקן את זה)' },
+  'blog.post17.title':          { en: 'Academic Integrity and Plagiarism Prevention', he: 'יושרה אקדמית ומניעת פלגיאריזם' },
+  'blog.post18.title':          { en: 'Best AI Tools for Students in 2026', he: 'כלי הבינה המלאכותית הטובים ביותר לסטודנטים ב-2026' },
+  'blog.post19.title':          { en: 'Online Learning Tools and Resources', he: 'כלים ומשאבים ללמידה מקוונת' },
+  'blog.post20.title':          { en: 'Scholarship Application Guide', he: 'מדריך להגשת בקשות למלגות' },
+  'blog.post21.title':          { en: 'Academic Stress Management', he: 'ניהול לחץ אקדמי' },
+  'blog.post21.excerpt':        { en: 'Proven techniques to manage academic pressure, reduce anxiety, and maintain balance throughout your studies.', he: 'טכניקות מוכחות לניהול לחץ אקדמי, הפחתת חרדה ושמירה על איזון לאורך הלימודים.' },
+  'blog.cat.resources':         { en: 'Resources', he: 'משאבים' },
+  'blog.cat.wellness':          { en: 'Wellness', he: 'רווחה' },
+
   /* ──────────────── CONTACT: Page ──────────────── */
   'contact.title':              { en: 'Contact — Acadeva', he: 'צור קשר — Acadeva' },
   'contact.meta.desc':          { en: 'Get in touch with Acadeva for academic support, research guidance, and writing assistance.', he: 'צרו קשר עם Acadeva לקבלת תמיכה אקדמית, הנחיית מחקר וסיוע בכתיבה.' },
