@@ -1,0 +1,36 @@
+title: Academic Help
+description: Comprehensive guides and resources to help students improve academic performance
+url: "https://academicsupport.co.il"
+baseurl: ""
+
+permalink: pretty
+
+markdown: kramdown
+kramdown:
+  input: GFM
+
+plugins:
+  - jekyll-sitemap
+  - jekyll-seo-tag
+
+defaults:
+  - scope:
+      path: ""
+      type: "pages"
+    values:
+      layout: "default"
+
+exclude:
+  - README.md
+  - Gemfile
+  - Gemfile.lock
+  - index.html
+  - about.html
+  - blog.html
+  - contact.html
+  - post-template.html
+  - styles.css
+  - rtl.css
+  - script.js
+  - i18n.js
+  - translations.js

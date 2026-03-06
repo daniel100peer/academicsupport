@@ -1,0 +1,47 @@
+<!DOCTYPE html>
+<html lang="he" dir="rtl" class="lang-he">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>{{ page.title }} | {{ site.title }}</title>
+  <meta name="description" content="{{ page.description }}">
+  <link rel="stylesheet" href="{{ '/assets/css/style.css' | relative_url }}">
+  <script>
+  (function(){
+    var l=localStorage.getItem('lang')||'he';
+    document.documentElement.lang=l;
+    document.documentElement.dir=l==='he'?'rtl':'ltr';
+    document.documentElement.className='lang-'+l;
+  })();
+  </script>
+</head>
+<body>
+  {% include nav.html %}
+  <main class="container">
+    <article>
+      <h1><span class="lang-en">{{ page.title }}</span><span class="lang-he">{{ page.title_he | default: page.title }}</span></h1>
+      {{ content }}
+    </article>
+  </main>
+  <footer class="container">
+    <p>&copy; {{ site.time | date: '%Y' }} <span class="lang-en">{{ site.title }}</span><span class="lang-he">עזרה אקדמית</span></p>
+  </footer>
+  <script>
+  (function(){
+    var lang=document.documentElement.lang||'he';
+    var btn=document.getElementById('lang-toggle');
+    if(btn){
+      btn.textContent=lang==='he'?'EN':'עב';
+      btn.addEventListener('click',function(){
+        lang=lang==='he'?'en':'he';
+        document.documentElement.lang=lang;
+        document.documentElement.dir=lang==='he'?'rtl':'ltr';
+        document.documentElement.className='lang-'+lang;
+        localStorage.setItem('lang',lang);
+        btn.textContent=lang==='he'?'EN':'עב';
+      });
+    }
+  })();
+  </script>
+</body>
+</html>
