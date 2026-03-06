@@ -1,4 +1,4 @@
-title: Academic Help
+﻿title: Academic Help
 description: Comprehensive guides and resources to help students improve academic performance
 url: "https://academicsupport.co.il"
 baseurl: ""
@@ -15,8 +15,15 @@ plugins:
 
 defaults:
   - scope:
-      path: ""
-      type: "pages"
+      path: "academic-writing"
+    values:
+      layout: "default"
+  - scope:
+      path: "study-skills"
+    values:
+      layout: "default"
+  - scope:
+      path: "student-resources"
     values:
       layout: "default"
 
@@ -24,3 +31,4 @@ exclude:
   - README.md
   - Gemfile
   - Gemfile.lock
+  - index.md
